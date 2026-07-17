@@ -1,0 +1,6 @@
+{
+  "name": "KTM Showroom Management",
+  "description": "Professional KTM Bike Showroom Management System featuring bike listing, user bookings, test ride management, and a comprehensive admin dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

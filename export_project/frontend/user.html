@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KTM Showroom - Rider Profile</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js"></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                K<span class="text-orange">T</span>M
+                <span class="logo-sub">Ready to Race</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="bikes.html" class="nav-link">Bikes</a>
+                <a href="bookings.html" class="nav-link">Bookings</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div id="nav-auth-container">
+                <a href="user.html" class="nav-btn">Rider Sign In</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <section class="bikes-section">
+        
+        <!-- Auth Gate: Not Logged In Screen -->
+        <div id="auth-forms-container" style="display: none; max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px;">
+            
+            <!-- Login -->
+            <div style="background-color: #0d0d0d; border: 1px solid #1a1a1a; padding: 40px; border-radius: 16px;">
+                <h3 style="font-size: 22px; font-weight: 800; color: white; margin-bottom: 25px; text-transform: uppercase;">RIDER SIGN IN</h3>
+                <form onsubmit="handleUserAuth(event, true)">
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" id="login-email" class="form-control" required placeholder="alex@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" id="login-pass" class="form-control" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="nav-btn" style="width: 100%; padding: 15px;">SIGN IN</button>
+                </form>
+            </div>
+
+            <!-- Register -->
+            <div style="background-color: #0d0d0d; border: 1px solid #1a1a1a; padding: 40px; border-radius: 16px;">
+                <h3 style="font-size: 22px; font-weight: 800; color: white; margin-bottom: 25px; text-transform: uppercase;">CREATE RIDER ID</h3>
+                <form onsubmit="handleUserAuth(event, false)">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" id="reg-name" class="form-control" required placeholder="Alex Miller">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" id="reg-email" class="form-control" required placeholder="alex@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Rider Phone</label>
+                        <input type="text" id="reg-phone" class="form-control" required placeholder="+1 555-0144">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Rider Password</label>
+                        <input type="password" id="reg-pass" class="form-control" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="nav-btn" style="width: 100%; padding: 15px; background-color: #fff; color: #000;">REGISTER ID</button>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- Rider Profile: Logged In Screen -->
+        <div id="profile-details-container" style="display: none; max-width: 800px; margin: 0 auto; text-align: left;">
+            <div style="background-color: #0d0d0d; border: 1px solid #1c1c1c; padding: 40px; border-radius: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px;">
+                    <div>
+                        <span style="color: #FF6600; font-family: monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px;">KTM LICENSED RIDER</span>
+                        <h2 style="font-size: 32px; font-weight: 900; text-transform: uppercase; color: white;" id="prof-rider-name">MARCUS RIDER</h2>
+                    </div>
+                    <button onclick="handleLogout()" class="nav-btn" style="background-color: #222;">Sign Out</button>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 35px; border-top: 1px solid #1a1a1a; padding-top: 30px;">
+                    <div>
+                        <h4 style="color:#666; font-size: 11px; text-transform: uppercase; font-family: monospace;">Email Address</h4>
+                        <p style="color: white; font-size: 15px; font-weight: 600;" id="prof-rider-email"></p>
+                    </div>
+                    <div>
+                        <h4 style="color:#666; font-size: 11px; text-transform: uppercase; font-family: monospace;">Rider Phone</h4>
+                        <p style="color: white; font-size: 15px; font-weight: 600;" id="prof-rider-phone"></p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px; display: flex; gap: 15px;">
+                    <a href="bookings.html" class="nav-btn" style="flex: 1; text-align: center;">Go to bookings</a>
+                    <a href="bikes.html" class="nav-btn" style="flex: 1; text-align: center; background-color: #222; border: 1px solid #333;">Go to Showroom</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <span style="font-size: 32px; font-weight: 900; color: white;">K<span class="text-orange">T</span>M</span>
+                <p style="margin-top: 15px;">KTM AG is an Austrian motorcycle and sports car manufacturer owned by Pierer Mobility AG and Bajaj Auto.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Dealer Hours</h4>
+                <ul style="list-style: none;">
+                    <li>Monday - Friday: 9:00 AM - 7:00 PM</li>
+                    <li>Saturday: 10:00 AM - 5:00 PM</li>
+                    <li style="color: var(--ktm-orange);">Sunday: Closed</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Global HQ</h4>
+                <p>100 KTM Orange Way<br>Mattighofen, Austria 5230</p>
+                <p style="font-family: monospace; color: white; font-size: 12px; margin-top: 10px;">Phone: +1 800-555-0199</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 KTM Showroom Management. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const user = getSessionUser();
+            const formBox = document.getElementById("auth-forms-container");
+            const profBox = document.getElementById("profile-details-container");
+
+            if (user) {
+                formBox.style.display = "none";
+                profBox.style.display = "block";
+                document.getElementById("prof-rider-name").innerText = user.name;
+                document.getElementById("prof-rider-email").innerText = user.email;
+                document.getElementById("prof-rider-phone").innerText = user.phone || "N/A";
+            } else {
+                formBox.style.display = "grid";
+                profBox.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

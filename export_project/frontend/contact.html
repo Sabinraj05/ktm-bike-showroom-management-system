@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KTM Showroom - Contact Dealer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js"></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                K<span class="text-orange">T</span>M
+                <span class="logo-sub">Ready to Race</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="bikes.html" class="nav-link">Bikes</a>
+                <a href="bookings.html" class="nav-link">Bookings</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+            </div>
+            <div id="nav-auth-container">
+                <a href="user.html" class="nav-btn">Rider Sign In</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <section class="bikes-section">
+        <div class="section-header">
+            <span class="section-badge">Get in Touch</span>
+            <h2 class="section-title">CONTACT DEALERS</h2>
+            <div class="title-line"></div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; text-align: left;">
+            
+            <!-- Contact Form -->
+            <div style="background-color: #0d0d0d; border: 1px solid #1a1a1a; padding: 40px; border-radius: 16px;">
+                <h3 style="font-size: 22px; font-weight: 800; color: white; margin-bottom: 25px; text-transform: uppercase;">Submit Showroom Inquiry</h3>
+                <form id="contact-feedback-form" onsubmit="handleContactSubmit(event)">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" id="con-name" class="form-control" required placeholder="Alex Miller">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" id="con-email" class="form-control" required placeholder="alex@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input type="text" id="con-phone" class="form-control" placeholder="+1 555-0144">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Subject</label>
+                        <input type="text" id="con-subject" class="form-control" required placeholder="Duke 390 test ride info">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Your Message</label>
+                        <textarea id="con-msg" class="form-control" rows="5" required placeholder="Type your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="nav-btn" style="width: 100%; padding: 15px;">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Dealers List and Map Mock -->
+            <div>
+                <h3 style="font-size: 22px; font-weight: 800; color: white; margin-bottom: 25px; text-transform: uppercase;">Find Nearby Showroom</h3>
+                
+                <div style="background-color: #121212; border: 1px solid #1c1c1c; padding: 25px; border-radius: 12px; margin-bottom: 20px;">
+                    <h4 style="color:#FF6600; font-size:16px; font-weight:800; margin-bottom:5px;">KTM Mumbai Pro Racing</h4>
+                    <p style="font-size:13px; color:#ccc;">G-10, Terminal Trade Center, Andheri East, Mumbai 400069</p>
+                    <p style="font-size:12px; color:#666; margin-top:8px; font-family:monospace;">Phone: +91 22-5555-0144 | Coordinates: 19.1136° N, 72.8697° E</p>
+                </div>
+
+                <!-- Google Map High Contrast Mock -->
+                <div style="background-color: #1c1c1c; height: 320px; border-radius: 12px; overflow: hidden; position: relative; border: 1px solid #2a2a2a; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <div style="font-size: 52px; margin-bottom: 10px;">📍</div>
+                    <h4 style="font-family: monospace; font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: 1px;">KTM GEO LOCATION MAP</h4>
+                    <p style="font-size:11px; color:#555; font-family: monospace; margin-top: 10px;">Andheri East Area Display • Zoom: 14x</p>
+                    <div style="position: absolute; bottom: 15px; left: 15px; background: rgba(0,0,0,0.8); border: 1px solid #333; padding: 5px 10px; border-radius: 4px; font-size: 10px; font-family: monospace;">
+                        Lat: 19.1136, Lng: 72.8697
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <span style="font-size: 32px; font-weight: 900; color: white;">K<span class="text-orange">T</span>M</span>
+                <p style="margin-top: 15px;">KTM AG is an Austrian motorcycle and sports car manufacturer owned by Pierer Mobility AG and Bajaj Auto.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Dealer Hours</h4>
+                <ul style="list-style: none;">
+                    <li>Monday - Friday: 9:00 AM - 7:00 PM</li>
+                    <li>Saturday: 10:00 AM - 5:00 PM</li>
+                    <li style="color: var(--ktm-orange);">Sunday: Closed</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Global HQ</h4>
+                <p>100 KTM Orange Way<br>Mattighofen, Austria 5230</p>
+                <p style="font-family: monospace; color: white; font-size: 12px; margin-top: 10px;">Phone: +1 800-555-0199</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 KTM Showroom Management. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Syncopate:wght@700&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Oswald", "Outfit", sans-serif;
+  --font-syncopate: "Syncopate", sans-serif;
+  
+  --color-ktm-orange: #FF6600;
+  --color-ktm-black: #050505;
+  --color-ktm-gray: #121214;
+  --color-ktm-gray-light: #1c1c1f;
+  --color-ktm-dark-orange: #cc5200;
+}
+
+/* Custom styles */
+html, body {
+  background-color: #050505;
+  color: #f4f4f5;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff6600;
+}
+
+/* Bold Typography & Racing theme utilities */
+.ktm-display-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  font-style: italic;
+}
+
+.ktm-syncopate {
+  font-family: var(--font-syncopate);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+/* Text stroke for massive aesthetic watermarks */
+.text-stroke-orange {
+  -webkit-text-stroke: 1.5px rgba(255, 102, 0, 0.15);
+  color: transparent;
+  font-family: var(--font-display);
+  font-weight: 900;
+}
+
+.text-stroke-white {
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.08);
+  color: transparent;
+  font-family: var(--font-display);
+  font-weight: 900;
+}
+
+/* Custom glow effects matching bold orange */
+.ktm-glow {
+  text-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
+}
+
+.ktm-glow-white {
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+}
+
+.ktm-box-glow {
+  box-shadow: 0 4px 30px rgba(255, 102, 0, 0.2);
+}
+
+.ktm-orange-glow-sm {
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.25);
+}
+
+.ktm-border-glow:focus {
+  border-color: #FF6600;
+  box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.25);
+}
+
+/* Tech grid overlay */
+.bg-grid-tech {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 102, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 102, 0, 0.02) 1px, transparent 1px);
+}
+
+/* Diagonal orange bar detail */
+.racing-stripe {
+  height: 4px;
+  background: repeating-linear-gradient(
+    45deg,
+    #ff6600,
+    #ff6600 10px,
+    #050505 10px,
+    #050505 20px
+  );
+}
+
+.racing-stripe-orange-black {
+  background: repeating-linear-gradient(
+    -45deg,
+    #ff6600,
+    #ff6600 8px,
+    #111111 8px,
+    #111111 16px
+  );
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KTM Bike Showroom - Ready to Race</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js"></script>
+</head>
+<body>
+
+    <!-- Responsive Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                K<span class="text-orange">T</span>M
+                <span class="logo-sub">Ready to Race</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="bikes.html" class="nav-link">Bikes</a>
+                <a href="bookings.html" class="nav-link">Bookings</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div id="nav-auth-container">
+                <a href="user.html" class="nav-btn">Rider Sign In</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Slider -->
+    <section class="hero-slider">
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1200&q=80');">
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <span class="slide-badge">KTM 390 Duke</span>
+                <h1 class="slide-title">THE CORNER ROCKET</h1>
+                <h2 class="slide-subtitle">Ready to Dominate</h2>
+                <p class="slide-text">Extremely lightweight, incredibly powerful, and packed with cutting-edge technology, it guarantees a thrilling ride.</p>
+                <a href="bikes.html" class="nav-btn">View Showroom</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="bikes-section">
+        <div class="section-header">
+            <span class="section-badge">Discover Your Style</span>
+            <h2 class="section-title">BIKE CATEGORIES</h2>
+            <div class="title-line"></div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+            <div style="background-color: #121212; padding: 30px; border-radius: 12px; border: 1px solid #1a1a1a; cursor: pointer;" onclick="window.location.href='bikes.html'">
+                <h3 style="color: #FF6600; font-weight: 800; font-size: 20px; text-transform: uppercase;">Naked</h3>
+                <p style="font-size: 12px; color: #666; margin-top: 8px;">Pure aggressive street power</p>
+            </div>
+            <div style="background-color: #121212; padding: 30px; border-radius: 12px; border: 1px solid #1a1a1a; cursor: pointer;" onclick="window.location.href='bikes.html'">
+                <h3 style="color: #FF6600; font-weight: 800; font-size: 20px; text-transform: uppercase;">Supersport</h3>
+                <p style="font-size: 12px; color: #666; margin-top: 8px;">Race track inspired agility</p>
+            </div>
+            <div style="background-color: #121212; padding: 30px; border-radius: 12px; border: 1px solid #1a1a1a; cursor: pointer;" onclick="window.location.href='bikes.html'">
+                <h3 style="color: #FF6600; font-weight: 800; font-size: 20px; text-transform: uppercase;">Adventure</h3>
+                <p style="font-size: 12px; color: #666; margin-top: 8px;">Cross continents & trails</p>
+            </div>
+            <div style="background-color: #121212; padding: 30px; border-radius: 12px; border: 1px solid #1a1a1a; cursor: pointer;" onclick="window.location.href='bikes.html'">
+                <h3 style="color: #FF6600; font-weight: 800; font-size: 20px; text-transform: uppercase;">Motocross</h3>
+                <p style="font-size: 12px; color: #666; margin-top: 8px;">Dirt track weapons</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Bikes -->
+    <section class="bikes-section">
+        <div class="section-header">
+            <span class="section-badge">Top Performers</span>
+            <h2 class="section-title">FEATURED BIKES</h2>
+            <div class="title-line"></div>
+        </div>
+        <div class="bikes-grid" id="featured-bikes-container">
+            <!-- Dynamically populated via js/main.js -->
+        </div>
+    </section>
+
+    <!-- Customer Reviews -->
+    <section class="bikes-section">
+        <div class="section-header">
+            <span class="section-badge">Customer Corner</span>
+            <h2 class="section-title">REVIEWS & FEEDBACK</h2>
+            <div class="title-line"></div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            <div style="background-color: #0f0f0f; border: 1px solid #1a1a1a; padding: 30px; border-radius: 16px; text-align: left;">
+                <p style="color: #FF6600; font-size: 14px; margin-bottom: 15px;">★★★★★</p>
+                <p style="font-size: 14px; color: #ccc; font-style: italic; margin-bottom: 20px;">"The KTM 1290 Super Duke R is an absolute monster. The showroom buying process was extremely clean, professional, and rapid."</p>
+                <h4 style="font-size: 13px; font-weight: 700; color: white; text-transform: uppercase;">Marcus Aurelius</h4>
+            </div>
+            <div style="background-color: #0f0f0f; border: 1px solid #1a1a1a; padding: 30px; border-radius: 16px; text-align: left;">
+                <p style="color: #FF6600; font-size: 14px; margin-bottom: 15px;">★★★★★</p>
+                <p style="font-size: 14px; color: #ccc; font-style: italic; margin-bottom: 20px;">"Picked up my KTM 390 Duke last week. This platform made it so easy to compare specs, find the bike, and reserve my purchase."</p>
+                <h4 style="font-size: 13px; font-weight: 700; color: white; text-transform: uppercase;">Sophia Rodriguez</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <span style="font-size: 32px; font-weight: 900; color: white;">K<span class="text-orange">T</span>M</span>
+                <p style="margin-top: 15px;">KTM AG is an Austrian motorcycle and sports car manufacturer owned by Pierer Mobility AG and Bajaj Auto.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Dealer Hours</h4>
+                <ul style="list-style: none;">
+                    <li>Monday - Friday: 9:00 AM - 7:00 PM</li>
+                    <li>Saturday: 10:00 AM - 5:00 PM</li>
+                    <li style="color: var(--ktm-orange);">Sunday: Closed</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Global HQ</h4>
+                <p>100 KTM Orange Way<br>Mattighofen, Austria 5230</p>
+                <p style="font-family: monospace; color: white; font-size: 12px; margin-top: 10px;">Phone: +1 800-555-0199</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 KTM Showroom Management. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            initHomePage();
+        });
+    </script>
+</body>
+</html>

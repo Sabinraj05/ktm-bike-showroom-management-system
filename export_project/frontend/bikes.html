@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KTM Showroom - Explore Bikes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js"></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                K<span class="text-orange">T</span>M
+                <span class="logo-sub">Ready to Race</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="bikes.html" class="nav-link active">Bikes</a>
+                <a href="bookings.html" class="nav-link">Bookings</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div id="nav-auth-container">
+                <a href="user.html" class="nav-btn">Rider Sign In</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header and Filters -->
+    <section class="bikes-section" style="margin-bottom: 20px;">
+        <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+            <div>
+                <span class="section-badge">Mattighofen Stock</span>
+                <h2 class="section-title">THE KTM GARAGE</h2>
+                <div class="title-line"></div>
+            </div>
+            <div style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+                <input type="text" id="bike-search" placeholder="Search KTM models..." style="padding: 10px 15px; background: #111; border: 1px solid #222; border-radius: 8px; color: white; font-size: 13px;" oninput="handleSearchFilter()">
+                <div style="display: flex; gap: 8px;">
+                    <button onclick="filterCategory('All')" class="nav-btn filter-btn" style="padding: 8px 15px; font-size:11px;">All</button>
+                    <button onclick="filterCategory('Naked')" class="nav-btn filter-btn" style="padding: 8px 15px; font-size:11px; background:#111; border:1px solid #222; color:#aaa;">Naked</button>
+                    <button onclick="filterCategory('Supersport')" class="nav-btn filter-btn" style="padding: 8px 15px; font-size:11px; background:#111; border:1px solid #222; color:#aaa;">Supersport</button>
+                    <button onclick="filterCategory('Adventure')" class="nav-btn filter-btn" style="padding: 8px 15px; font-size:11px; background:#111; border:1px solid #222; color:#aaa;">Adventure</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bikes List Container -->
+    <section class="bikes-section" style="margin-top: 0;">
+        <div class="bikes-grid" id="all-bikes-container">
+            <!-- Dynamically populated via main.js -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <span style="font-size: 32px; font-weight: 900; color: white;">K<span class="text-orange">T</span>M</span>
+                <p style="margin-top: 15px;">KTM AG is an Austrian motorcycle and sports car manufacturer owned by Pierer Mobility AG and Bajaj Auto.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Dealer Hours</h4>
+                <ul style="list-style: none;">
+                    <li>Monday - Friday: 9:00 AM - 7:00 PM</li>
+                    <li>Saturday: 10:00 AM - 5:00 PM</li>
+                    <li style="color: var(--ktm-orange);">Sunday: Closed</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Global HQ</h4>
+                <p>100 KTM Orange Way<br>Mattighofen, Austria 5230</p>
+                <p style="font-family: monospace; color: white; font-size: 12px; margin-top: 10px;">Phone: +1 800-555-0199</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 KTM Showroom Management. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentCategory = "All";
+
+        document.addEventListener("DOMContentLoaded", () => {
+            initBikesPage();
+        });
+
+        function handleSearchFilter() {
+            const query = document.getElementById("bike-search").value;
+            renderFilteredBikes(currentCategory, query);
+        }
+
+        function filterCategory(category) {
+            currentCategory = category;
+            
+            // Toggle active style on buttons
+            const buttons = document.querySelectorAll(".filter-btn");
+            buttons.forEach(btn => {
+                if (btn.innerText.toLowerCase() === category.toLowerCase()) {
+                    btn.style.backgroundColor = "var(--ktm-orange)";
+                    btn.style.color = "white";
+                    btn.style.border = "none";
+                } else {
+                    btn.style.backgroundColor = "#111";
+                    btn.style.color = "#aaa";
+                    btn.style.border = "1px solid #222";
+                }
+            });
+
+            handleSearchFilter();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KTM Showroom - Bookings</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js"></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                K<span class="text-orange">T</span>M
+                <span class="logo-sub">Ready to Race</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="bikes.html" class="nav-link">Bikes</a>
+                <a href="bookings.html" class="nav-link active">Bookings</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div id="nav-auth-container">
+                <a href="user.html" class="nav-btn">Rider Sign In</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <section class="bikes-section">
+        <div class="section-header">
+            <span class="section-badge">Booking Center</span>
+            <h2 class="section-title">TEST RIDE & RESERVE ENGINE</h2>
+            <div class="title-line"></div>
+        </div>
+
+        <!-- Auth Gate fallback -->
+        <div id="bookings-auth-box" style="display: block; text-align: center; padding: 60px 0;">
+            <p style="color: #666; margin-bottom: 20px;">Please authenticate your Rider ID first to schedule dealership reservations.</p>
+            <a href="user.html" class="nav-btn">Rider Authenticate</a>
+        </div>
+
+        <!-- Dynamic Scheduling Form & Reservations Lists -->
+        <div id="bookings-scheduler-box" style="display: none; display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; text-align: left;">
+            
+            <!-- Booking Form -->
+            <div style="background-color: #0d0d0d; border: 1px solid #1a1a1a; padding: 40px; border-radius: 16px;">
+                <h3 style="font-size: 22px; font-weight: 800; color: white; margin-bottom: 25px; text-transform: uppercase;">Schedule Dealership Slot</h3>
+                <form id="rider-booking-form" onsubmit="handleBookingSubmit(event)">
+                    
+                    <div class="form-group">
+                        <label class="form-label">Rider Full Name</label>
+                        <input type="text" id="book-rider-name" class="form-control" readonly style="color: #555; background:#080808; cursor:not-allowed;">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Registered Email</label>
+                        <input type="email" id="book-rider-email" class="form-control" readonly style="color: #555; background:#080808; cursor:not-allowed;">
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="form-group">
+                            <label class="form-label">KTM Model</label>
+                            <select id="book-bike-id" class="form-control">
+                                <!-- Populated dynamically from stock -->
+                            </select>
+                            <!-- Hidden helper to track selected name easily -->
+                            <select id="book-bike-name" style="display:none;"></select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Modality Type</label>
+                            <select id="book-type-select" class="form-control">
+                                <option value="Test Ride">Complimentary Test Ride</option>
+                                <option value="Purchase">Purchase Reservation</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Date</label>
+                        <input type="date" id="book-date-input" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Notes (Optional)</label>
+                        <textarea id="book-notes-input" class="form-control" rows="3" placeholder="Tell us about your riding experience or request specifications..."></textarea>
+                    </div>
+
+                    <button type="submit" class="nav-btn" style="width: 100%; padding: 15px;">Book Showroom Slot</button>
+                </form>
+            </div>
+
+            <!-- Active Reservations list -->
+            <div>
+                <h3 style="font-size: 22px; font-weight: 800; color: white; margin-bottom: 25px; text-transform: uppercase;">My Active Rides</h3>
+                <div id="active-reservations-container" style="display: flex; flex-direction: column; gap: 15px;">
+                    <!-- Dynamically populated via loadRiderReservations() -->
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <span style="font-size: 32px; font-weight: 900; color: white;">K<span class="text-orange">T</span>M</span>
+                <p style="margin-top: 15px;">KTM AG is an Austrian motorcycle and sports car manufacturer owned by Pierer Mobility AG and Bajaj Auto.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Dealer Hours</h4>
+                <ul style="list-style: none;">
+                    <li>Monday - Friday: 9:00 AM - 7:00 PM</li>
+                    <li>Saturday: 10:00 AM - 5:00 PM</li>
+                    <li style="color: var(--ktm-orange);">Sunday: Closed</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Global HQ</h4>
+                <p>100 KTM Orange Way<br>Mattighofen, Austria 5230</p>
+                <p style="font-family: monospace; color: white; font-size: 12px; margin-top: 10px;">Phone: +1 800-555-0199</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 KTM Showroom Management. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            initBookingsPage();
+        });
+    </script>
+</body>
+</html>
